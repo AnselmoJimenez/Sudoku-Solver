@@ -1,4 +1,3 @@
-import tkinter
 
 
 class window:
