@@ -15,7 +15,6 @@ def define_table():
         ["8", " ", " ", " ", "7", " ", " ", " ", " "]
     ]
 
-# ❚
 def draw_table(table):
     for i, row in enumerate(table):
         if i % 3 == 0 and i != 0:
@@ -24,13 +23,17 @@ def draw_table(table):
             print("---+---+---❚---+---+---❚---+---+---");
         
         for j, col in enumerate(row):
-            print(f" {col} ", end="❚" if (j + 1) % 3 == 0 and j != 8 else " " if j == 8 else "|");
+            if (j + 1) % 3 == 0 and j != 8:
+                print(f" {col} ", end="❚");
+            elif j == 8:
+                print(f" {col} ", end=" ");
+            else:
+                print(f" {col} ", end="|");
         print();
 
-
-
 def main():
-    draw_table(define_table())
+    draw_table(define_table());
+
 
 if __name__ == "__main__":
     main()
