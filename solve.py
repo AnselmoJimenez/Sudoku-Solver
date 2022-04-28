@@ -5,7 +5,9 @@ class solve:
         self.col = 0;
 
     def check_validity(self, entry) -> bool:
-        pass
+        if self.check_row(entry) and self.check_col(entry) and self.check_box(entry):
+            return True;
+        return False;
 
     def check_row(self, entry) -> bool:
         for element in self.table[self.row]:
@@ -35,7 +37,7 @@ class solve:
     def update_pos(self, row, column):
         # If at the end of the table
         if self.col == 8 and self.row == 8:
-            self.col += 1;
+            return
 
         # if at end of the column, update row and column
         elif self.col == 8:
@@ -44,13 +46,15 @@ class solve:
 
         # if at last row, only update column
         elif self.row == 8: # end of table
-            pass
+            self.col += 1;
     
-    def solve(self, position, row, col):
-        if self.pos != " ": 
-            self.update_pos(self.row, self.column); 
-            self.solve(self.pos, self.row, self.col);
+    def solve(self, row=0, col=0):
+        if self.table[self.row][self.col] != " ": 
+            self.update_pos(self.row, self.col); 
+            self.solve(self.row, self.col);
 
         for i in range(9):
-            pass
-            # Validate entry
+            if self.check_validity(i):
+                self.insert_entry(i);
+                self.update_pos(self.row, self.col);
+                self.solve(self.row, self.col)

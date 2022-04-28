@@ -1,9 +1,8 @@
 import solve
-import window
+# import window
 
 
-def define_table():
-    return [
+table = [
         [" ", "0", " ", " ", " ", "1", " ", " ", "4"],
         ["1", " ", " ", " ", "2", " ", " ", "5", " "],
         [" ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -13,7 +12,7 @@ def define_table():
         [" ", " ", "2", " ", " ", " ", "0", " ", " "],
         [" ", " ", " ", " ", " ", " ", " ", "6", " "],
         ["8", " ", " ", " ", "7", " ", " ", " ", " "]
-    ]
+    ];
 
 def draw_table(table):
     for i, row in enumerate(table):
@@ -32,7 +31,8 @@ def draw_table(table):
         print();
 
 def main():
-    draw_table(define_table());
+    solver = solve(table);
+    solver.solve();
 
 
 if __name__ == "__main__":
