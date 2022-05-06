@@ -52,6 +52,9 @@ class solve:
     def run(self, row, col):
         self.draw_table(self.table);
 
+        if row == 8 and col == 9:
+            return True;
+
         if col == 9:
             col = 0;
             row += 1;
