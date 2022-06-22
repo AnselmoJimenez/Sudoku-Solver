@@ -1,5 +1,5 @@
 import solve
-# import window
+import window
 
 TABLE = [
         [0, 0, 0, 2, 6, 0, 7, 0, 1],
@@ -16,9 +16,11 @@ TABLE = [
 
 
 def main():
-    solver = solve.solve(TABLE);
-    solver.run(0, 0);
+    # solver = solve.solve(TABLE);
+    # solver.run(0, 0);
+
+    win = window.window();
     return;
 
 if __name__ == "__main__":
-    main()
+    main();
